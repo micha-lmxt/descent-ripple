@@ -4,9 +4,9 @@
 
 <main>
 	<h1>Hello !</h1>
-	<button use:ripple>Click Me</button>
+	<button use:ripple>Click Me</button> 
 	<button class="round" use:ripple>Click Me</button>
-	<div style="position:relative" use:ripple={{size:(i)=>Math.random()}}><span style="background-color:red">x</span></div>
+	<div style="position:relative" use:ripple={{nCircles:20,nLines:1,circleInAnimationProps:(i)=>({delay:i*30}),circleProps:(i)=>({fill:"rgba("+(255-i*255 / 20)+","+(255-i*255 / 20)+","+(i*255 / 20)+",.1)"})}}><span style="background-color:red">x</span></div>
 	<div style="position:relative">
 		<button use:ripple class="bigborder">Click Me</button>
 		<button class="round" use:ripple>Click Me</button>
