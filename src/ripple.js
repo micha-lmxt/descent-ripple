@@ -1,8 +1,9 @@
 import Ripple from './Ripple.svelte';
 import { draw, fade, scale, blur, fly } from "svelte/transition";
+import {drawReverse } from './ripplehelpers';
 
 
-export default function (node, params) {
+export default function (node, params={}) {
     const props = Object.assign({}, params, { node: node });
     const applyAnimation = (s, defaul) => {
         if (!props[s]) {
@@ -13,6 +14,7 @@ export default function (node, params) {
             if (props[s] === "scale") { props[s] = scale };
             if (props[s] === "blur") { props[s] = blur };
             if (props[s] === "fly") { props[s] = fly };
+            if (props[s] === "draw-reverse"){props[s] = drawReverse}
         }
     }
 

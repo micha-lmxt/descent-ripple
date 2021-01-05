@@ -1,11 +1,17 @@
 {
-  "name": "svelte-app",
+  "name": "descent-ripple",
+  "description": "A ripple animation overlay for buttons. Uses svg and is build with Svelte",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public"
+    "build": "rollup -c"
   },
+  "files":[
+    "dist"
+  ],
+  "module": "dist/module.js",
+  "main": "dist/index.js",
+  "commonjs": "dist/index_cjs.js",
+  "types": "types/ripple.d.ts",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
@@ -16,8 +22,5 @@
     "rollup-plugin-terser": "^7.0.0",
     "svelte": "^3.0.0"
   },
-  "dependencies": {
-    "roughjs": "^4.3.1",
-    "sirv-cli": "^1.0.0"
-  }
+  "dependencies": {}
 }

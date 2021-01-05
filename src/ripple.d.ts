@@ -20,17 +20,17 @@ interface RippleParams {
     /** Force button element to have style `overflow:hidden`. Style is necessary so that ripple respects bounds of button. Default true. */
     forceOverflowHidden?: boolean,
 
-    /** Size. Is relative to diagonal of element. Can be single value or function on indexes of lines (set nLines>0). Should be >0 and <=1. Default 1. */
-    size?: number | ((lineIndex: number) => number),
+    /** Size. Is relative to diagonal of element. Can be single value or function on indexes of lines (set nLines>0). Can be relative number or absolute pixel strings eg. "100px". Number should be >0 and <=1. Default 1. */
+    size?: number | string | ((lineIndex: number) => number|string),
 
     /** Time To Remove. Milliseconds until fading out begins. Default 500 */
     timeToRemove?: number,
 
     /** In-animation type for the lines. Default draw. Can also supply custom function. draw/scale/fade/blur/fly are from [svelte](https://github.com/sveltejs/svelte/blob/master/src/runtime/transition/index.ts) */
-    linesInAnimation?: "draw" | "scale" | "fade" | "blur" | "fly" | ((node: Element, props: object) => TransitionConfig),
+    linesInAnimation?: "draw" | "scale" | "fade" | "blur" | "fly" | "draw-reverse" | ((node: Element, props: object) => TransitionConfig),
 
     /** Out-animation type for the lines. Default fade. Can also supply custom function. draw/scale/fade/blur/fly are from [svelte](https://github.com/sveltejs/svelte/blob/master/src/runtime/transition/index.ts) */
-    linesOutAnimation?: "draw" | "scale" | "fade" | "blur" | "fly" | ((node: Element, props: object) => TransitionConfig),
+    linesOutAnimation?: "draw" | "scale" | "fade" | "blur" | "fly" | "draw-reverse" | ((node: Element, props: object) => TransitionConfig),
 
     /** Animation parameters for the lines draw effect. Can be a function on the line indexes, eg. (i)=>({delay:30*i}) */
     linesInAnimationProps?: DrawParams | ((lineIndex: number) => DrawParams) | CustomAnimationParams | ((lineIndex: number) => CustomAnimationParams),
@@ -45,13 +45,13 @@ interface RippleParams {
     nCircles?: number,
 
     /** In-animation type for the circle. Default scale. Can also supply custom function. draw/scale/fade/blur/fly are from [svelte](https://github.com/sveltejs/svelte/blob/master/src/runtime/transition/index.ts) */
-    circleInAnimation: "draw" | "scale" | "fade" | "blur" | "fly" | ((node: Element, props: object) => TransitionConfig),
+    circleInAnimation?: "draw" | "scale" | "fade" | "blur" | "fly" | "draw-reverse" | ((node: Element, props: object) => TransitionConfig),
 
     /** Out-animation type for the circle. Default fade. Can also supply custom function. draw/scale/fade/blur/fly are from [svelte](https://github.com/sveltejs/svelte/blob/master/src/runtime/transition/index.ts) */
-    circleOutAnimation: "draw" | "scale" | "fade" | "blur" | "fly" | ((node: Element, props: object) => TransitionConfig),
+    circleOutAnimation?: "draw" | "scale" | "fade" | "blur" | "fly" | "draw-reverse" | ((node: Element, props: object) => TransitionConfig),
 
-    /** Circle radius. Relative to button diagonal. Default 1 */
-    circleRadius?: number,
+    /** Circle radius. Number is relative to button diagonal, string is absolute, eg. "100px". Default 1 */
+    circleRadius?: number| string | ((circleIndex: number)=> number | string),
 
     /** Animation parameters for the circle scale in effect. */
     circleInAnimationProps?: ScaleParams | CustomAnimationParams
@@ -60,7 +60,7 @@ interface RippleParams {
     circleOutAnimationProps?: FadeParams | CustomAnimationParams,
 
     /** Circle props. */
-    circleProps: CustomSVGProps | ((lineIndex: number) => CustomSVGProps),
+    circleProps?: CustomSVGProps | ((lineIndex: number) => CustomSVGProps),
 
 }
 
@@ -100,4 +100,6 @@ interface FadeParams {
 /** Copied from [Svelte](https://github.com/sveltejs/svelte/blob/master/src/runtime/transition/index.ts) */
 declare type EasingFunction = (t: number) => number;
 
-export default function (node: Node, params: RippleParams);
+export default function (node: Node, params: RippleParams) : {
+    onDestroy: () => void,
+};

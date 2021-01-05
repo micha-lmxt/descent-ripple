@@ -63,7 +63,13 @@
         const ls = Array(nLines);
 
         for (let i = 0; i < nLines; i++) {
-            const length = _size(i) * d;
+            let s = _size(i);
+            if (typeof s === "string") {
+                s = parseFloat(s);
+            } else {
+                s *= d;
+            }
+            const length = s;
             let path = "M" + ox + " " + oy;
             const k = lineBreakDist === 0 ? length : lineBreakDist;
             let j = 0;
@@ -104,12 +110,20 @@
 
         circles = Array(nCircles)
             .fill()
-            .map((v, i) => ({
-                x: ox,
-                y: oy,
-                r: _circleRadius(i) * d,
-                id: coun.toString() + "+" + i,
-            }));
+            .map((v, i) => {
+                let cr = _circleRadius(i);
+                if (typeof cr === "number"){
+                    cr *= d;
+                }else{
+                    cr = parseFloat(cr);
+                }
+                return {
+                    x: ox,
+                    y: oy,
+                    r: cr,
+                    id: coun.toString() + "+" + i,
+                };
+            });
 
         timeOut = setTimeout(removeLinesAndCircles, timeToRemove);
     };
@@ -118,8 +132,7 @@
         circles = [];
     };
 
-    const addSVG = (target, px, py,) => {
-        
+    const addSVG = (target, px, py) => {
         svgWidth = target.clientWidth + 1;
         svgHeight = target.clientHeight + 1;
 
@@ -137,20 +150,6 @@
         clicked = true;
         const rect = node.getBoundingClientRect();
         const computed = window.getComputedStyle(node);
-        let dx =
-            event.clientX -
-            rect.left -
-            (parseFloat(computed.borderLeftWidth) || 0);
-        let dy =
-            event.clientY -
-            rect.top -
-            (parseFloat(computed.borderTopWidth) || 0);
-        timeOut = setTimeout(addSVG, 1, node, dx, dy);
-    };
-
-    onMount(() => {
-        node.addEventListener("mousedown", onMouseDown);
-        const computed = window.getComputedStyle(node);
         if (
             forceRelative &&
             computed.position !== "absolute" &&
@@ -166,6 +165,20 @@
             node.style.overflowX = "hidden";
             node.style.overflowY = "hidden";
         }
+        let dx =
+            event.clientX -
+            rect.left -
+            (parseFloat(computed.borderLeftWidth) || 0);
+        let dy =
+            event.clientY -
+            rect.top -
+            (parseFloat(computed.borderTopWidth) || 0);
+        timeOut = setTimeout(addSVG, 1, node, dx, dy);
+    };
+
+    onMount(() => {
+        node.addEventListener("mousedown", onMouseDown);
+        const computed = window.getComputedStyle(node);
     });
 
     onDestroy(() => {
