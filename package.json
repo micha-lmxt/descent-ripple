@@ -1,7 +1,7 @@
 {
   "name": "descent-ripple",
   "description": "A ripple animation overlay for buttons. Uses svg and is build with Svelte",
-  "version": "1.0.0",
+  "version": "0.3.2",
   "scripts": {
     "build": "rollup -c"
   },
@@ -10,8 +10,7 @@
   ],
   "module": "dist/module.js",
   "main": "dist/index.js",
-  "commonjs": "dist/index_cjs.js",
-  "types": "types/ripple.d.ts",
+  "types": "dist/ripple.d.ts",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-node-resolve": "^10.0.0",
@@ -21,6 +20,5 @@
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
     "svelte": "^3.0.0"
-  },
-  "dependencies": {}
+  }
 }

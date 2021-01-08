@@ -28,7 +28,8 @@
     export let circleOutAnimationProps = { duration: 500 };
     export let circleInAnimationProps = { duration: 700, start: 0 };
     export let circleProps = { fill: "rgba(255,9,9,0.4)" };
-
+    export let svgStyle = "position:absolute;overflow:hidden;top:0px;left:0px;";
+    
     let _rotation;
     $: _rotation = fup(rotation);
     let _lineProps;
@@ -54,7 +55,7 @@
     let svgWidth = 1;
     let circles;
     let svgHeight = 1;
-    let svgStyle = "position:absolute;overflow:hidden;top:0px;left:0px;";
+    
     let timeOut;
     let svg;
 

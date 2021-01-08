@@ -21,7 +21,7 @@ interface RippleParams {
     forceOverflowHidden?: boolean,
 
     /** Size. Is relative to diagonal of element. Can be single value or function on indexes of lines (set nLines>0). Can be relative number or absolute pixel strings eg. "100px". Number should be >0 and <=1. Default 1. */
-    size?: number | string | ((lineIndex: number) => number|string),
+    size?: number | string | ((lineIndex: number) => number | string),
 
     /** Time To Remove. Milliseconds until fading out begins. Default 500 */
     timeToRemove?: number,
@@ -51,7 +51,7 @@ interface RippleParams {
     circleOutAnimation?: "draw" | "scale" | "fade" | "blur" | "fly" | "draw-reverse" | ((node: Element, props: object) => TransitionConfig),
 
     /** Circle radius. Number is relative to button diagonal, string is absolute, eg. "100px". Default 1 */
-    circleRadius?: number| string | ((circleIndex: number)=> number | string),
+    circleRadius?: number | string | ((circleIndex: number) => number | string),
 
     /** Animation parameters for the circle scale in effect. */
     circleInAnimationProps?: ScaleParams | CustomAnimationParams
@@ -61,6 +61,9 @@ interface RippleParams {
 
     /** Circle props. */
     circleProps?: CustomSVGProps | ((lineIndex: number) => CustomSVGProps),
+
+    /** SVG style attribute. Default: "position:absolute;overflow:hidden;top:0px;left:0px;" */
+    svgStyle?: string
 
 }
 
@@ -100,6 +103,6 @@ interface FadeParams {
 /** Copied from [Svelte](https://github.com/sveltejs/svelte/blob/master/src/runtime/transition/index.ts) */
 declare type EasingFunction = (t: number) => number;
 
-export default function (node: Node, params: RippleParams) : {
+export default function (node: Node, params: RippleParams): {
     onDestroy: () => void,
 };
