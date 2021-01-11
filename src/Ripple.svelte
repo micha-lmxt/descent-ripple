@@ -6,7 +6,7 @@
     export let nLines = 10;
     export let nCircles = 1;
     export let lineBreakDist = 0.3;
-    export let randomness = 1;
+    export let randomness = 0;
     export let backstep = 0;
     export let rotation = (i) => 20 * Math.sin((Math.PI * i) / 90);
     export let forceRelative = true;
