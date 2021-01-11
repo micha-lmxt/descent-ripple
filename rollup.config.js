@@ -36,13 +36,13 @@ export default {
 		{
 		  file: pkg.module,
 		  format: "es",
-		  sourcemap: true,
+		  sourcemap: false,
 		  name
 		},
 		{
 		  file: pkg.main,
 		  format: "umd",
-		  sourcemap: true,
+		  sourcemap: false,
 		  name
 		}
 	  ],
