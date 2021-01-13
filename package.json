@@ -1,7 +1,7 @@
 {
   "name": "descent-ripple",
   "description": "A ripple animation overlay for buttons. Uses svg and is build with Svelte",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "build": "rollup -c"
   },

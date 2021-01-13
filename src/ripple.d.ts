@@ -104,5 +104,6 @@ interface FadeParams {
 declare type EasingFunction = (t: number) => number;
 
 export default function (node: Node, params: RippleParams): {
-    onDestroy: () => void,
+    destroy: () => void,
+    update: (par: RippleParams) => void,
 };
