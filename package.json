@@ -1,5 +1,6 @@
 {
   "name": "descent-ripple",
+  "author": "micha-lmxt <micha-lmxt@gradientdescent.de> (https://gradientdescent.de)",
   "description": "A ripple animation overlay for buttons. Uses svg and is build with Svelte",
   "version": "1.0.1",
   "scripts": {

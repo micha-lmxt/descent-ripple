@@ -1,6 +1,10 @@
 # Descent-Ripple
 
-A highly customizable javascrip ripple animation for buttons. Made with Svelte, but easily usable with other frameworks. 
+[![NPM](https://img.shields.io/npm/v/descent-ripple.svg)](https://www.npmjs.com/package/descent-ripple)
+
+A highly customizable javascrip ripple animation for buttons. Made with Svelte, but easily usable with other frameworks.
+
+[![Volcano ripple example](https://github.com/micha-lmxt/descent-ripple/static/descent-ripple.gif)](https://gradientdescent.de/descent-ripple/)
 
 [Examples and usage](https://gradientdescent.de/descent-ripple/)
 
