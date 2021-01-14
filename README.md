@@ -10,6 +10,8 @@ A highly customizable javascript ripple animation for buttons. Made with Svelte,
 
 ## Getting started
 
+> For React there is a wrapped component available, see [react-descent-ripple](https://github.com/micha-lmxt/react-descent-ripple)
+
 Install the package from npm:
 
 ```javascript
