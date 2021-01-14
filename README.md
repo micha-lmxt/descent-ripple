@@ -6,9 +6,9 @@ A highly customizable javascript ripple animation for buttons. Made with Svelte,
 
 [![Volcano ripple example](https://github.com/micha-lmxt/descent-ripple/blob/master/static/descent-ripple.gif)](https://gradientdescent.de/descent-ripple/)
 
-[Examples and usage](https://gradientdescent.de/descent-ripple/)
+[More Examples and usage](https://gradientdescent.de/descent-ripple/)
 
-### Getting started
+## Getting started
 
 Install the package from npm:
 
@@ -41,3 +41,4 @@ export const MyButton = ()=>{
 
 For other frameworks see [this blog post](https://gradientdescent.de/descent-ripple/).
 
+---
