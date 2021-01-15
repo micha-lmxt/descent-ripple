@@ -21,24 +21,14 @@ npm install descent-ripple
 In [Svelte](https://svelte.dev) you can easily use actions:
 
 ```javascript
-// MyButton.tsx
-import React from 'react';
-import ripple from 'descent-ripple';
+// MyButton.svelte
+<script>
+    import ripple from 'descent-ripple';
+    let rippleOptions = {};
+</script>
 
-export const MyButton = ()=>{
-    const buttonRef = React.useRef<Node>(null);
-     React.useEffect(()=>{
-        if (buttonRef.current){
-            let rippleOptions={};
-            const buttonRipple = ripple(buttonRef.current,rippleOptions);
-            return buttonRipple.destroy;
-            
-        }
-    },[]);
-    return (
-        <button ref={buttonRef}>click me</button>
-    )
-}
+<button use:ripple={rippleOptions}>click me </button>
+
 ```
 
 For other frameworks see [this blog post](https://gradientdescent.de/descent-ripple/).
