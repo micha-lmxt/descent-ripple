@@ -4,7 +4,7 @@
 
 A highly customizable javascript ripple animation for buttons. Made with Svelte, but easily usable with other frameworks.
 
-[![Volcano ripple example](https://github.com/micha-lmxt/descent-ripple/blob/master/static/descent-ripple.gif)](https://gradientdescent.de/descent-ripple/)
+[![Volcano ripple example](https://github.com/micha-lmxt/descent-ripple/blob/master/static/descent-ripple-tripple.gif)](https://gradientdescent.de/descent-ripple/)
 
 [More Examples and usage](https://gradientdescent.de/descent-ripple/)
 
